@@ -1,0 +1,27 @@
+#include <Servo.h>
+
+Servo myservo;
+
+void setup() {
+  Serial.begin(9600);
+  myservo.attach(9);
+
+}
+
+void loop() {
+  if(Serial.available()>0);{
+    char comando  = Serial.read();
+    if(comando == '1'){
+      myservo.write(180);
+    }else if(comando == '2'){
+      myservo.write(90);
+    }
+  }
+}
+
+
+//para verificar se a pasta esta funcionando entra em documentos, arduino, steck e ver se tem um ino 
+//quando clicamos em sketch e export compilad ele passar os documentos para a pasta acima
+//usamos para levar ao simulide o arquivo .ino.hex
+//para colocar, colocamos no arduino clicando no botão direito do mouse , mega, rodware
+//para funcionar, precisamos pegar o serial terminal 
